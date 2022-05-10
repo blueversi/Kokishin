@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 //TODO: refactor i funkcjonalnosci js-a z wersji statycznej
 //TODO: wsio odnowa komponentami, pojdzie szybciej niz transo
 
-const Profile: FC = () => {
+const Profile = () => {
   return (
     <main>
       {/*---------------------------*/}

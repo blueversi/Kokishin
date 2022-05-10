@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 //todo: zmienić na aside i wywalic sidebar z maina, zamknac po prostu we wraperze
 
-const Sidebar: FC = () => {
+const Sidebar = () => {
   return (
     <>
       <div id='sidebar'>

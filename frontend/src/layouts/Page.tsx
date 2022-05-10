@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import Profile from '../pages/Profile';
 
-const Page: FC = () => {
+const Page = () => {
   return (
     <>
       <Router>
