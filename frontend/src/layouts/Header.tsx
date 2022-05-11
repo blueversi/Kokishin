@@ -22,7 +22,7 @@ const Header = () => {
           <div className='userbar'>
             <img
               className='user-avatar'
-              src='../res/img/userav/navbar/user-av-1.webp'
+              src='img/userav/navbar/user-av-1.webp'
               alt='user'
             />
             <div className='user-dropdown'>

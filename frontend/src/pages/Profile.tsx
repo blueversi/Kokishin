@@ -16,7 +16,7 @@ const Profile = () => {
         <div className='profile-details'>
           <img
             className='profile-avatar'
-            src='res/img/userprofile/user-av1.webp'
+            src='../img/userprofile/user-av1.webp'
           />
           <div className='profile-description'>
             <p>
@@ -47,7 +47,7 @@ const Profile = () => {
         <div className='profile-achivments'>
           <div className='achivment-box'>
             <img
-              src='res/img/achivments/default.webp'
+              src='../img/achivments/default.webp'
               className='achivment-img'
             />
             <span className='achivment-title'>Stary Wyjadacz</span>
@@ -55,7 +55,7 @@ const Profile = () => {
           </div>
           <div className='achivment-box'>
             <img
-              src='res/img/achivments/default.webp'
+              src='../img/achivments/default.webp'
               className='achivment-img'
             />
             <span className='achivment-title'>Poczatkujący Komentator</span>
@@ -63,7 +63,7 @@ const Profile = () => {
           </div>
           <div className='achivment-box'>
             <img
-              src='res/img/achivments/default.webp'
+              src='../img/achivments/default.webp'
               className='achivment-img'
             />
             <span className='achivment-title'>Odznaka Społeczności</span>
@@ -73,7 +73,7 @@ const Profile = () => {
           </div>
           <div className='achivment-box'>
             <img
-              src='res/img/achivments/default.webp'
+              src='../img/achivments/default.webp'
               className='achivment-img'
             />
             <span className='achivment-title'>Fizyk</span>
@@ -83,7 +83,7 @@ const Profile = () => {
           </div>
           <div className='achivment-box'>
             <img
-              src='res/img/achivments/default.webp'
+              src='../img/achivments/default.webp'
               className='achivment-img'
             />
             <span className='achivment-title'>Początkujący Bloger</span>
@@ -127,7 +127,7 @@ const Profile = () => {
                 ipsum dolor sit amet, consectetur adipiscing .
               </p>
             </div>
-            <img className='blog-post-img' src='res/img/blogposts/2.webp' />
+            <img className='blog-post-img' src='../img/blogposts/2.webp' />
             <div className='blog-post-footer'>
               <span className='main-list-item-author'>
                 Dodane przez: <a href='#'>Azurow</a> 5 godzin temu
@@ -196,7 +196,7 @@ const Profile = () => {
                 exercitationsed do eiusmod tensectetur adipisc
               </p>
             </div>
-            <img className='blog-post-img' src='res/img/blogposts/1.webp' />
+            <img className='blog-post-img' src='../img/blogposts/1.webp' />
             <div className='blog-post-footer'>
               <span className='main-list-item-author'>
                 Dodane przez: <a href='#'>Azurow</a> 5 godzin temu
@@ -240,7 +240,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-cow-1.webp' />
+              <img src='../img/main-list/main-cow-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -280,7 +280,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-chitizenitza-1.webp' />
+              <img src='../img/main-list/main-chitizenitza-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -320,7 +320,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-coast-1.webp' />
+              <img src='../img/main-list/main-coast-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -360,7 +360,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-finedining-1.webp' />
+              <img src='../img/main-list/main-finedining-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -405,7 +405,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-default-1.webp' />
+              <img src='../img/main-list/main-default-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -445,7 +445,7 @@ const Profile = () => {
                 ipsum dolor sit amet, consectetur adipiscing .
               </p>
             </div>
-            <img className='blog-post-img' src='res/img/blogposts/2.webp' />
+            <img className='blog-post-img' src='../img/blogposts/2.webp' />
             <div className='blog-post-footer'>
               <span className='main-list-item-author'>
                 Dodane przez: <a href='#'>Azurow</a> 5 godzin temu
@@ -484,7 +484,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-venice-1.webp' />
+              <img src='../img/main-list/main-venice-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -558,7 +558,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-france-1.webp' />
+              <img src='../img/main-list/main-france-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -603,7 +603,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-france-1.webp' />
+              <img src='../img/main-list/main-france-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -643,7 +643,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-default-1.webp' />
+              <img src='../img/main-list/main-default-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -683,7 +683,7 @@ const Profile = () => {
               </p>
             </div>
             <div className='main-list-item-photo'>
-              <img src='res/img/main-list/main-venice-1.webp' />
+              <img src='../img/main-list/main-venice-1.webp' />
             </div>
             <div className='main-list-item-footer'>
               <a href='#'>
@@ -716,7 +716,7 @@ const Profile = () => {
         <div className='sidebar-item'>
           <h3>Polecane działy</h3>
           <div className='topic-recomendations'>
-            <img src='res/img/sidebar/sidebar-recomend-bonsai.webp' />
+            <img src='../img/sidebar/sidebar-recomend-bonsai.webp' />
             <div className='topic-recomendations-title'>Bonsai</div>
             <div className='topic-recomendations-description'>
               W tym dziale znajdziesz ciekawostki związane z zajmowaniem się
@@ -724,7 +724,7 @@ const Profile = () => {
             </div>
           </div>
           <div className='topic-recomendations'>
-            <img src='res/img/sidebar/sidebar-recomend-cat.webp' />
+            <img src='../img/sidebar/sidebar-recomend-cat.webp' />
             <div className='topic-recomendations-title'>
               <a href='/koty/'>Koty</a>
             </div>
@@ -733,7 +733,7 @@ const Profile = () => {
             </div>
           </div>
           <div className='topic-recomendations'>
-            <img src='res/img/sidebar/sidebar-recomend-programing.webp' />
+            <img src='../img/sidebar/sidebar-recomend-programing.webp' />
             <div className='topic-recomendations-title'>
               <a href='/programowanie/'>Programowanie</a>
             </div>
@@ -743,7 +743,7 @@ const Profile = () => {
             </div>
           </div>
           <div className='topic-recomendations'>
-            <img src='res/img/sidebar/sidebar-recomend-genetics.webp' />
+            <img src='../img/sidebar/sidebar-recomend-genetics.webp' />
             <div className='topic-recomendations-title'>
               <a href='/genetyka/'>Genetyka</a>
             </div>
@@ -753,7 +753,7 @@ const Profile = () => {
             </div>
           </div>
           <div className='topic-recomendations'>
-            <img src='res/img/sidebar/sidebar-recomend-android.webp' />
+            <img src='../img/sidebar/sidebar-recomend-android.webp' />
             <div className='topic-recomendations-title'>
               <a href='/android/'>Android</a>
             </div>
