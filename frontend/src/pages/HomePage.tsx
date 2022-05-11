@@ -18,6 +18,7 @@ const HomePage = () => {
         <div id='main-list'>
           <h2>Popularne ciekawostki</h2>
           {articles.map((item: any) => {
+            console.log(item.img);
             return (
               <Article
                 key={item.id}

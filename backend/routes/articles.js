@@ -10,7 +10,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-france-1.webp',
     comments: 365,
   },
   {
@@ -20,7 +20,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-japan-1.webp',
     comments: 365,
   },
   {
@@ -30,7 +30,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-flamming-1.webp',
     comments: 365,
   },
   {
@@ -40,7 +40,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-venice-1.webp',
     comments: 365,
   },
   {
@@ -50,7 +50,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-chitizenitza-1.webp',
     comments: 365,
   },
   {
@@ -60,7 +60,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-default-1.webp',
     comments: 365,
   },
   {
@@ -70,7 +70,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-finedining-1.webp',
     comments: 365,
   },
   {
@@ -80,7 +80,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-coast-1.webp',
     comments: 365,
   },
   {
@@ -90,7 +90,7 @@ const articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 'Azurow',
     date: '2022-03-14',
-    img: 'res/img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main-cow-1.webp',
     comments: 365,
   },
 ];
