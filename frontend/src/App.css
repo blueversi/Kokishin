@@ -218,7 +218,8 @@ main {
 }
 
 .main-list-item-author {
-  font-size: 12px;
+  font-size: 0.9rem;
+  word-spacing: 0.1rem;
 }
 
 .main-list-item-footer {
@@ -226,6 +227,10 @@ main {
   padding: 5px;
   font-size: 12px;
   margin-left: 5%;
+}
+
+.main-list-item-footer a + a {
+  margin-left: 1rem;
 }
 
 /************************************/
