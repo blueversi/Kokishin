@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -17,12 +18,12 @@ const Header = () => {
             </button>
           </form>
           <span className='logo'>
-            <a href='index.html'>Kokishin</a>
+            <NavLink to='/'>Kokishin</NavLink>
           </span>
           <div className='userbar'>
             <img
               className='user-avatar'
-              src='img/userav/navbar/user-av-1.webp'
+              src='./img/userav/navbar/user-av-1.webp'
               alt='user'
             />
             <div className='user-dropdown'>
@@ -30,26 +31,26 @@ const Header = () => {
                 BlueVersi <i className='fas fa-caret-down'></i>
               </span>
               <div className='user-dropdown-content'>
-                <a href='profile.html'>
+                <NavLink to='/user/BlueVersi'>
                   <i className='fas fa-user'></i> Profil
-                </a>
-                <a href='ustawienia.html'>
+                </NavLink>
+                <NavLink to='/user/settings'>
                   <i className='fas fa-cog'></i> Ustawienia
-                </a>
-                <a href='wyloguj.html'>
+                </NavLink>
+                <NavLink to='/user/logut'>
                   <i className='fas fa-sign-out-alt'></i> Wyloguj
-                </a>
+                </NavLink>
               </div>
             </div>
-            <a href='zapisane.html'>
+            <NavLink to='/user/saved'>
               <i className='far fa-bookmark'></i>
-            </a>
-            <a href='wiadomosci.html'>
+            </NavLink>
+            <NavLink to='/user/messages'>
               <i className='far fa-envelope'></i>
-            </a>
-            <a href='dodaj.html'>
+            </NavLink>
+            <NavLink to='/articles/add'>
               <i className='fas fa-plus'></i>
-            </a>
+            </NavLink>
           </div>
         </nav>
       </header>

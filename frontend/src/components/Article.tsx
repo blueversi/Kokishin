@@ -31,19 +31,19 @@ const Article = (props: ArticleProps) => {
         <img src={props.img} alt='obrazek do posta' />
       </div>
       <div className='main-list-item-footer'>
-        <a href=''>
+        <a href='#'>
           <i className='far fa-comments'></i> 365
         </a>
         -
-        <a href=''>
+        <a href='#'>
           <i className='fas fa-share-alt'></i> Udostępnij
         </a>
         -
-        <a href=''>
+        <a href='#'>
           <i className='far fa-bookmark'></i> Zapisz
         </a>
         -
-        <a href=''>
+        <a href='#'>
           <i className='far fa-flag'></i> Zgłoś
         </a>
       </div>
