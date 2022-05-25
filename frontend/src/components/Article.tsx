@@ -26,12 +26,8 @@ const Article = (props: ArticleProps) => {
         <span className='main-list-item-author'>
           Dodane przez: <NavLink to='/user/Blueversi'>{props.author} </NavLink>
           Dnia: {props.date}
-        </span>
-        <span className='tags'>
-          {' '}
           do
           <NavLink to={`./categories/${props.category}`}>
-            {' '}
             {props.category}
           </NavLink>
         </span>
