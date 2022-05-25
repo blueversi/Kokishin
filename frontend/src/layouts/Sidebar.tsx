@@ -5,12 +5,12 @@ import React from 'react';
 const Sidebar = () => {
   return (
     <>
-      <div id='sidebar'>
+      <aside id='sidebar'>
         <div className='sidebar-item'>
           <h3>Polecane działy</h3>
           <div className='topic-recomendations'>
             <img
-              src='img/sidebar/sidebar-recomend-bonsai.webp'
+              src='../img/sidebar/sidebar-recomend-bonsai.webp'
               alt='obrazek w sidebarze'
             />
             <div className='topic-recomendations-title'>Bonsai</div>
@@ -22,7 +22,7 @@ const Sidebar = () => {
 
           <div className='topic-recomendations'>
             <img
-              src='img/sidebar/sidebar-recomend-cat.webp'
+              src='../img/sidebar/sidebar-recomend-cat.webp'
               alt='obrazek w sidebarze'
             />
             <div className='topic-recomendations-title'>
@@ -35,7 +35,7 @@ const Sidebar = () => {
 
           <div className='topic-recomendations'>
             <img
-              src='img/sidebar/sidebar-recomend-programing.webp'
+              src='../img/sidebar/sidebar-recomend-programing.webp'
               alt='obrazek w sidebarze'
             />
             <div className='topic-recomendations-title'>
@@ -49,7 +49,7 @@ const Sidebar = () => {
 
           <div className='topic-recomendations'>
             <img
-              src='img/sidebar/sidebar-recomend-genetics.webp'
+              src='../img/sidebar/sidebar-recomend-genetics.webp'
               alt='obrazek w sidebarze'
             />
             <div className='topic-recomendations-title'>
@@ -63,7 +63,7 @@ const Sidebar = () => {
 
           <div className='topic-recomendations'>
             <img
-              src='img/sidebar/sidebar-recomend-android.webp'
+              src='../img/sidebar/sidebar-recomend-android.webp'
               alt='obrazek w sidebarze'
             />
             <div className='topic-recomendations-title'>
@@ -122,7 +122,7 @@ const Sidebar = () => {
           Kokishin <i className='far fa-copyright'></i> 2021. Wszelkie prawa
           zastrzeżone.
         </div>
-      </div>
+      </aside>
     </>
   );
 };

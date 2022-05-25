@@ -14,7 +14,7 @@ interface ArticleProps {
 
 const Article = (props: ArticleProps) => {
   return (
-    <div className='main-list-item'>
+    <article className='main-list-item'>
       <div className='main-list-item-vote-bar'>
         {/* TODO: Zamiast navlinka button z handlerem  ale to na etapie jak juz bd mongo śmigać z danymi */}
         <NavLink to='/'>
@@ -25,8 +25,7 @@ const Article = (props: ArticleProps) => {
         <h3>{props.tiitle}</h3>
         <span className='main-list-item-author'>
           Dodane przez: <NavLink to='/user/Blueversi'>{props.author} </NavLink>
-          Dnia: {props.date}
-          do
+          Dnia: {props.date} do{' '}
           <NavLink to={`./categories/${props.category}`}>
             {props.category}
           </NavLink>
@@ -51,7 +50,7 @@ const Article = (props: ArticleProps) => {
           <i className='far fa-flag'></i> Zgłoś
         </NavLink>
       </div>
-    </div>
+    </article>
   );
 };
 

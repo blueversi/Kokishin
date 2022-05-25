@@ -9,6 +9,7 @@ html {
   font-size: 14px;
   background-color: #1d1d2c;
   color: #f7f4e9;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -377,15 +378,15 @@ main {
 }
 
 #added-container {
-  display: none;
+  /* display: none; */
 }
 
 #actions-container {
-  display: none;
+  /* display: none; */
 }
 
 #saved-container {
-  display: none;
+  /* display: none; */
 }
 
 .profile-achivments {
