@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from '../layouts/Sidebar';
+import Sidebar from '../../layouts/Sidebar';
 
 //TODO: wyrzucenie sekcji w komponenty do zrobienia kiedy będzie już podpięte mongo z danymi i będzie json do mapowania
 const Profile = () => {

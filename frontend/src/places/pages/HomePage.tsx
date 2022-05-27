@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { getAllArticles } from '../APIcalls/ArticlesCalls';
-import Article from '../components/Article';
-import Sidebar from '../layouts/Sidebar';
+import { getAllArticles } from '../../APIcalls/ArticlesCalls';
+import Article from '../../articles/components/Article';
+import Sidebar from '../../layouts/Sidebar';
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
