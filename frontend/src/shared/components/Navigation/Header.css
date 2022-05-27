@@ -1,106 +1,23 @@
-/************************************/
-/*------------NAVIGATION------------*/
-/************************************/
-
 header {
-  width: 100%;
-  background-color: #23232e;
-  margin-top: 0px;
-  position: fixed;
-  top: 0;
-}
-
-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  width: 100%;
+  background-color: #23232e;
+  margin-top: 0px;
+  top: 0;
+  position: fixed;
   overflow: hidden;
 }
 
-.userbar {
-  font-weight: bold;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 15%;
-  /*border: solid 1px #F7F4E9;*/
-}
+/* RWD - MEDIA QUERIES */
 
-.user-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.user-dropdown-content {
-  display: none;
-  position: fixed;
-  background-color: #23232e;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px #23232e;
-  z-index: 1;
-}
-.user-dropdown-content a {
-  display: block;
-  color: #f7f4e9;
-  font-weight: bold;
-  word-spacing: 10px;
-  text-decoration: none;
-  padding: 15px;
-}
-
-.user-dropdown-content a:hover {
-  color: #f7f4e9;
-  background-color: #3cbcc3;
-}
-
-.user-dropdown:hover .user-dropdown-content {
-  display: block;
-}
-nav form {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: fit-content;
-  width: 15%;
-}
-
-nav input {
-  box-sizing: border-box;
-}
-
-nav input[type='text'] {
-  font-size: 16px;
-  height: fit-content;
-  width: 80%;
-  outline: none !important;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom: 1px groove #f7f4e9;
-  box-shadow: none;
-  color: #f7f4e9;
-  cursor: pointer;
-  background-color: #23232e;
-  padding: 10px;
-}
-
-nav button {
-  font-size: 16px;
-  height: fit-content;
-  width: 10%;
-  margin-left: 0px;
-  padding: 10px;
-  color: #f7f4e9;
-  background-color: #23232e;
-  outline: none !important;
-  border: none;
-}
-
-.user-avatar {
-  width: 20px;
-  height: 20px;
-  align-self: center;
+/* Smartfony */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  header {
+    flex-direction: column;
+    height: 160px;
+  }
 }

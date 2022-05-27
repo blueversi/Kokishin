@@ -6,7 +6,7 @@
 
 html {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #1d1d2c;
   color: #f7f4e9;
   scroll-behavior: smooth;
@@ -257,18 +257,6 @@ main {
 
 #blog-container {
   font-size: 14px;
-}
-
-#added-container {
-  /* display: none; */
-}
-
-#actions-container {
-  /* display: none; */
-}
-
-#saved-container {
-  /* display: none; */
 }
 
 .profile-achivments {

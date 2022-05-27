@@ -1,11 +1,22 @@
 .logo {
   color: #f7f4e9;
-  font-size: 24px;
+  font-size: 1.8rem;
   font-weight: bold;
-  /* margin-left: 10px; */
   background-color: transparent;
+  text-align: left;
+  width: 15%;
 }
 
 .logo:hover {
   color: #f7f4e9;
+}
+
+/* RWD - MEDIA QUERIES */
+
+/* Smartfony */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
 }
