@@ -1,11 +1,14 @@
 import React from 'react';
+import './Header.css';
 import { NavLink } from 'react-router-dom';
+import Logo from './Logo';
 
 const Header = () => {
   return (
     <>
       <header>
         <nav>
+          <Logo />
           <form action=''>
             <input
               id='searchBar'
@@ -17,9 +20,6 @@ const Header = () => {
               <i className='fas fa-search'></i>
             </button>
           </form>
-          <span className='logo'>
-            <NavLink to='/'>Kokishin</NavLink>
-          </span>
           <div className='userbar'>
             <img
               className='user-avatar'

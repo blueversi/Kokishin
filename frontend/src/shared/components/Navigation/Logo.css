@@ -1,0 +1,11 @@
+.logo {
+  color: #f7f4e9;
+  font-size: 24px;
+  font-weight: bold;
+  /* margin-left: 10px; */
+  background-color: transparent;
+}
+
+.logo:hover {
+  color: #f7f4e9;
+}
