@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getSidebarItems } from '../../../APIcalls/SidebarItemsCalls';
 import './Sidebar.css';
+import SidebarItem from './SidebarItem';
 
-//todo: zmienić na aside i wywalic sidebar z maina, zamknac po prostu we wraperze
+//TODO: this needs to be reinvented..
 
 const Sidebar = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    getSidebarItems().then((response: any) => {
+      setItems(response.data);
+    });
+  }, []);
+
   return (
     <aside>
-      <div className='sidebar-item'>
-        <br />
-        <a href='/About'>O nas</a>
-        <br />
-        <a href='/Ads'>Reklama</a>
-        <br />
-        <a href='/Privacy_Politic'>Polityka prywatności</a>
-        <br />
-        <a href='/Contact'>Kontakt</a>
-        <br />
-        <br />
-        Kokishin <i className='far fa-copyright'></i> 2021. Wszelkie prawa
-        zastrzeżone.
-      </div>
+      {items.map((item: any) => {
+        return (
+          <SidebarItem
+            key={item.position}
+            tiitle={item.title}
+            content={item.content}
+            position={item.position}
+          />
+        );
+      })}
     </aside>
   );
 };

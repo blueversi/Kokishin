@@ -260,6 +260,83 @@ main {
   background-color: #3cbcc3;
   box-shadow: 0px 0px 10px 0px #3cbcc3;
 }
+/************************************/
+/*-------------SIDEBAR--------------*/
+/************************************/
+
+aside {
+  color: #f7f4e9;
+  width: 20%;
+}
+
+.sidebar-item {
+  padding: 15px;
+  background-color: #23232e;
+  margin-top: 10px;
+}
+
+.sidebar-item h3 {
+  font-size: 18px;
+  margin-top: 0px;
+}
+
+.top-today {
+  font: lighter;
+}
+
+.top-today ol {
+  font-size: 14px;
+  font-weight: lighter;
+  padding-inline-start: 20px;
+}
+
+.sidebar-item ol li {
+  display: list-item;
+  margin-top: 15px;
+}
+
+.sidebar-item ol li:first-child {
+  margin-top: 0px;
+}
+
+.sidebar-item ol li a {
+  list-style-position: inside;
+}
+
+.topic-recomendations {
+  display: flex;
+  width: fit-content;
+  max-height: 150px;
+  overflow: hidden;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  border-bottom: thin solid 2px #1d1d2c;
+}
+
+.topic-recomendations:first {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0px;
+}
+.topic-recomendations img {
+  width: 100%;
+}
+
+.topic-recomendations-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.topic-recomendations-description {
+  margin-top: 5px;
+  font-size: 12px;
+  width: 100%;
+}
 
 /************************************/
 /*---------------BLOG---------------*/
