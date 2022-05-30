@@ -7,7 +7,6 @@ const Profile = () => {
   const profileSection = () => {
     switch (section) {
       case 'BLOG': {
-        console.log(section);
         return (
           <div id='blog-container' className='profile-user-actions'>
             <div className='blog-post'>
