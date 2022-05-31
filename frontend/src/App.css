@@ -127,7 +127,7 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 15px;
   background-color: #23232e;
 }
