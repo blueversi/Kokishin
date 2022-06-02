@@ -101,4 +101,13 @@ router.get('/', function (req, res, next) {
   res.status(200).json(articles);
 });
 
+/* GET article by id */
+router.get('/:aid', function (req, res, next) {
+  const articleId = req.params.aid;
+  const article = articles.find((a) => {
+    return a.id == articleId;
+  });
+  res.status(200).json(article);
+});
+
 module.exports = router;
