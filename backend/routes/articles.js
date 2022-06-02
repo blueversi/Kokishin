@@ -107,16 +107,30 @@ router.get('/:aid', function (req, res, next) {
   const article = articles.find((a) => {
     return a.id == articleId;
   });
+
+  if (!article) {
+    throw new HttpError(
+      `Could not find a article with ID = [${articleId}]`,
+      404
+    );
+  }
   res.status(200).json(article);
 });
 
 /* GET user articles */
 router.get('/user/:uid', function (req, res, next) {
   const userId = req.params.uid;
-  const article = articles.filter((a) => {
+  const userArticles = articles.filter((a) => {
     return a.author == userId;
   });
-  res.status(200).json(article);
+
+  if (!userArticles.length) {
+    throw new HttpError(
+      `Could not find a article for user with ID = [${userId}]`,
+      404
+    );
+  }
+  res.status(200).json(userArticles);
 });
 
 module.exports = router;
