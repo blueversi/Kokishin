@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const HttpError = require('../models/http-error');
 
 /* TMP */
 const articles = [
@@ -8,7 +9,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 1,
     date: '2022-03-14',
     img: 'img/main-list/main-france-1.webp',
     comments: 365,
@@ -18,7 +19,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 2,
     date: '2022-03-14',
     img: 'img/main-list/main-japan-1.webp',
     comments: 365,
@@ -28,7 +29,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 3,
     date: '2022-03-14',
     img: 'img/main-list/main-flamming-1.webp',
     comments: 365,
@@ -38,7 +39,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 1,
     date: '2022-03-14',
     img: 'img/main-list/main-venice-1.webp',
     comments: 365,
@@ -48,7 +49,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 4,
     date: '2022-03-14',
     img: 'img/main-list/main-chitizenitza-1.webp',
     comments: 365,
@@ -58,7 +59,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 2,
     date: '2022-03-14',
     img: 'img/main-list/main-default-1.webp',
     comments: 365,
@@ -68,7 +69,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 2,
     date: '2022-03-14',
     img: 'img/main-list/main-finedining-1.webp',
     comments: 365,
@@ -78,7 +79,7 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 3,
     date: '2022-03-14',
     img: 'img/main-list/main-coast-1.webp',
     comments: 365,
@@ -88,14 +89,14 @@ const articles = [
     title: 'Przykładowy tytuł ciekaowstki',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    author: 'Azurow',
+    author: 4,
     date: '2022-03-14',
     img: 'img/main-list/main-cow-1.webp',
     comments: 365,
   },
 ];
 
-/* GET users listing. */
+/* GET all articles */
 router.get('/', function (req, res, next) {
   res.status(200).json(articles);
 });
