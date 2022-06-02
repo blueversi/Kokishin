@@ -1,5 +1,3 @@
-var express = require('express');
-var router = express.Router();
 const HttpError = require('../models/http-error');
 
 /* TMP */
@@ -97,12 +95,12 @@ const articles = [
 ];
 
 /* GET all articles */
-router.get('/', function (req, res, next) {
+const getAllArticles = (req, res, next) => {
   res.status(200).json(articles);
-});
+};
 
 /* GET article by id */
-router.get('/:aid', function (req, res, next) {
+const getArticleById = (req, res, next) => {
   const articleId = req.params.aid;
   const article = articles.find((a) => {
     return a.id == articleId;
@@ -115,10 +113,10 @@ router.get('/:aid', function (req, res, next) {
     );
   }
   res.status(200).json(article);
-});
+};
 
 /* GET user articles */
-router.get('/user/:uid', function (req, res, next) {
+const getUserArticles = (req, res, next) => {
   const userId = req.params.uid;
   const userArticles = articles.filter((a) => {
     return a.author == userId;
@@ -131,6 +129,8 @@ router.get('/user/:uid', function (req, res, next) {
     );
   }
   res.status(200).json(userArticles);
-});
+};
 
-module.exports = router;
+exports.getAllArticles = getAllArticles;
+exports.getArticleById = getArticleById;
+exports.getUserArticles = getUserArticles;
