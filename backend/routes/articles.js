@@ -110,4 +110,13 @@ router.get('/:aid', function (req, res, next) {
   res.status(200).json(article);
 });
 
+/* GET user articles */
+router.get('/user/:uid', function (req, res, next) {
+  const userId = req.params.uid;
+  const article = articles.filter((a) => {
+    return a.author == userId;
+  });
+  res.status(200).json(article);
+});
+
 module.exports = router;
