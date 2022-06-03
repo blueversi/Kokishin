@@ -131,6 +131,7 @@ const getUserArticles = (req, res, next) => {
   res.status(200).json(userArticles);
 };
 
+/* POST create new article */
 const createArticle = (req, res, next) => {
   const { id, title, description, author, date, img } = req.body;
 
@@ -151,7 +152,24 @@ const createArticle = (req, res, next) => {
   res.status(201).json({ article: createdArticle });
 };
 
+/* POST update existing article */
+const updateArticle = (req, res, next) => {
+  const articleId = req.params.aid;
+  const { title, description } = req.body;
+
+  const updateArticle = { ...articles.find((a) => a.id == articleId) };
+  const articleIndex = articles.findIndex((a) => a.id == articleId);
+
+  updateArticle.title = title;
+  updateArticle.description = description;
+
+  articles[articleIndex] = updateArticle;
+
+  res.status(200).json({ article: updateArticle });
+};
+
 exports.getAllArticles = getAllArticles;
 exports.getArticleById = getArticleById;
 exports.getUserArticles = getUserArticles;
 exports.createArticle = createArticle;
+exports.updateArticle = updateArticle;
