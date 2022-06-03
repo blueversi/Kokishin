@@ -15,6 +15,10 @@ router.get('/user/:uid', articlesController.getUserArticles);
 /* POST new article*/
 router.post('/', articlesController.createArticle);
 
+/* PATCH update existing article*/
 router.patch('/:aid', articlesController.updateArticle);
+
+/* POST delete article*/
+router.delete('/:aid', articlesController.deleteArticle);
 
 module.exports = router;

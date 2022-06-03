@@ -1,7 +1,7 @@
 const HttpError = require('../models/http-error');
 
 /* TMP */
-const articles = [
+var articles = [
   {
     id: 1,
     title: 'Przykładowy tytuł ciekaowstki',
@@ -168,8 +168,18 @@ const updateArticle = (req, res, next) => {
   res.status(200).json({ article: updateArticle });
 };
 
+/* Delete existing article */
+const deleteArticle = (req, res, next) => {
+  const articleId = req.params.aid;
+
+  articles = articles.filter((a) => a.id != articleId);
+
+  res.status(200).json({ message: 'Article deleted' });
+};
+
 exports.getAllArticles = getAllArticles;
 exports.getArticleById = getArticleById;
 exports.getUserArticles = getUserArticles;
 exports.createArticle = createArticle;
 exports.updateArticle = updateArticle;
+exports.deleteArticle = deleteArticle;
