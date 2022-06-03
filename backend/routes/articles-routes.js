@@ -12,4 +12,6 @@ router.get('/:aid', articlesController.getArticleById);
 /* GET user articles */
 router.get('/user/:uid', articlesController.getUserArticles);
 
+router.post('/', articlesController.createArticle);
+
 module.exports = router;

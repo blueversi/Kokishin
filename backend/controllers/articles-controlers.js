@@ -131,6 +131,27 @@ const getUserArticles = (req, res, next) => {
   res.status(200).json(userArticles);
 };
 
+const createArticle = (req, res, next) => {
+  const { id, title, description, author, date, img } = req.body;
+
+  console.log(id);
+  const createdArticle = {
+    id,
+    title,
+    description,
+    author,
+    date,
+    img,
+    comments: 365,
+  };
+
+  console.log(createdArticle);
+  articles.push(createdArticle);
+
+  res.status(201).json({ article: createdArticle });
+};
+
 exports.getAllArticles = getAllArticles;
 exports.getArticleById = getArticleById;
 exports.getUserArticles = getUserArticles;
+exports.createArticle = createArticle;
