@@ -15,7 +15,7 @@ MERN - MongoDb, Express, React, Node js
 ## Frontend
 
 Frontend server runs on
-[http://localhost:3000/]
+[http://localhost:3000/](http://localhost:3000/)
 
 ### Profile Page
 
@@ -24,4 +24,4 @@ Frontend server runs on
 ## Backend
 
 Backend servers with API runs on
-[http://localhost:5000/]
+[http://localhost:5000/](http://localhost:5000/)
