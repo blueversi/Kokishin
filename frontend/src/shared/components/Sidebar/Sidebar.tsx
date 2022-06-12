@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getSidebarItems } from '../../../APIcalls/SidebarItemsCalls';
+import { getSidebarItems } from '../../../APIcalls/SidebarCalls';
 import './Sidebar.css';
 import SidebarItem from './SidebarItem';
 

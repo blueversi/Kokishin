@@ -8,7 +8,7 @@ const HttpError = require('./models/http-error');
 
 var usersRouter = require('./routes/users-routes');
 var articlesRouter = require('./routes/articles-routes');
-var sidebarItemsRouter = require('./routes/sidebarItems-routes');
+var sidebarRouter = require('./routes/sidebar-routes');
 
 var app = express();
 
@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersRouter);
 app.use('/articles', articlesRouter);
-app.use('/sidebarItems', sidebarItemsRouter);
+app.use('/sidebar', sidebarRouter);
 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);
