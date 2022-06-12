@@ -125,7 +125,7 @@ const getUserArticles = (req, res, next) => {
 
   if (!userArticles.length) {
     throw new HttpError(
-      `Could not find a article for user with ID = [${userId}]`,
+      `Could not find the article for user with ID = [${userId}]`,
       404
     );
   }
@@ -181,12 +181,18 @@ const updateArticle = (req, res, next) => {
 
 /* DELETE existing article */
 const deleteArticle = (req, res, next) => {
-  const errors = validationResult(req);
-
-  if (!errors.isEmpty()) {
-    throw new HttpError('Invalid id passed', 422);
-  }
   const articleId = req.params.aid;
+
+  const article = articles.find((a) => {
+    return a.id == articleId;
+  });
+
+  if (!article) {
+    throw new HttpError(
+      `Could not find the article with ID = [${articleId}]`,
+      404
+    );
+  }
 
   articles = articles.filter((a) => a.id != articleId);
 

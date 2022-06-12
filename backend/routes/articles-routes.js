@@ -39,10 +39,6 @@ router.patch(
 );
 
 /* POST delete article*/
-router.delete(
-  '/:aid',
-  [check('id').not().isEmpty().isNumeric()],
-  articlesController.deleteArticle
-);
+router.delete('/:aid', articlesController.deleteArticle);
 
 module.exports = router;
