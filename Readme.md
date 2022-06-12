@@ -6,6 +6,10 @@ Work in progress. Readme will be updated.
 
 After download you need to open two shells and in both run:
 
+### `npm install`
+
+and then to start
+
 ### `npm start`
 
 ## Tech stack
