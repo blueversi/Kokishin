@@ -1,4 +1,5 @@
 const HttpError = require('../models/http-error');
+const { body, validationResult } = require('express-validator');
 
 /* TMP */
 var articles = [
@@ -133,9 +134,14 @@ const getUserArticles = (req, res, next) => {
 
 /* POST create new article */
 const createArticle = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    throw new HttpError('Invalid inputs passed, please check your data', 422);
+  }
+
   const { id, title, description, author, date, img } = req.body;
 
-  console.log(id);
   const createdArticle = {
     id,
     title,
@@ -146,14 +152,19 @@ const createArticle = (req, res, next) => {
     comments: 365,
   };
 
-  console.log(createdArticle);
   articles.push(createdArticle);
 
   res.status(201).json({ article: createdArticle });
 };
 
-/* POST update existing article */
+/* PATCH update existing article */
 const updateArticle = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    throw new HttpError('Invalid inputs passed, please check your data', 422);
+  }
+
   const articleId = req.params.aid;
   const { title, description } = req.body;
 
@@ -168,8 +179,13 @@ const updateArticle = (req, res, next) => {
   res.status(200).json({ article: updateArticle });
 };
 
-/* Delete existing article */
+/* DELETE existing article */
 const deleteArticle = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    throw new HttpError('Invalid id passed', 422);
+  }
   const articleId = req.params.aid;
 
   articles = articles.filter((a) => a.id != articleId);

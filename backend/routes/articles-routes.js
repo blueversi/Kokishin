@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-const HttpError = require('../models/http-error');
+const express = require('express');
+const { check } = require('express-validator');
 const articlesController = require('../controllers/articles-controlers');
+const router = express.Router();
 
 /* GET all articles */
 router.get('/', articlesController.getAllArticles);
@@ -13,12 +13,36 @@ router.get('/:aid', articlesController.getArticleById);
 router.get('/user/:uid', articlesController.getUserArticles);
 
 /* POST new article*/
-router.post('/', articlesController.createArticle);
+router.post(
+  '/',
+  [
+    check('id').not().isEmpty().isNumeric(),
+    check('title').not().isEmpty(),
+    check('description').isLength({ min: 5 }),
+    check('author').not().isEmpty().isNumeric(),
+    check('title').not().isEmpty(),
+    check('img').not().isEmpty(),
+    check('comments').not().isEmpty().isNumeric(),
+  ],
+  articlesController.createArticle
+);
 
 /* PATCH update existing article*/
-router.patch('/:aid', articlesController.updateArticle);
+router.patch(
+  '/:aid',
+  [
+    check('id').not().isEmpty().isNumeric(),
+    check('title').not().isEmpty(),
+    check('description').isLength({ min: 5 }),
+  ],
+  articlesController.updateArticle
+);
 
 /* POST delete article*/
-router.delete('/:aid', articlesController.deleteArticle);
+router.delete(
+  '/:aid',
+  [check('id').not().isEmpty().isNumeric()],
+  articlesController.deleteArticle
+);
 
 module.exports = router;
