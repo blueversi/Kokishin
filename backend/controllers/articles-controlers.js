@@ -151,7 +151,14 @@ const getUserArticles = async (req, res, next) => {
     return next(error);
   }
 
-  res.status(200).json(articles);
+  if (!articles.length >= 1) {
+    const error = new HttpError(`Cannot get articles for this user id.`, 404);
+    return next(error);
+  }
+
+  res.status(200).json({
+    articles: articles.map((place) => place.toObject({ getters: true })),
+  });
 };
 
 /* POST create new article */
@@ -179,7 +186,7 @@ const createArticle = async (req, res, next) => {
 };
 
 /* PATCH update existing article */
-const updateArticle = (req, res, next) => {
+const updateArticle = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -189,15 +196,31 @@ const updateArticle = (req, res, next) => {
   const articleId = req.params.aid;
   const { title, description } = req.body;
 
-  const updateArticle = { ...articles.find((a) => a.id == articleId) };
-  const articleIndex = articles.findIndex((a) => a.id == articleId);
+  let article;
+  try {
+    article = await Article.findById(articleId);
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not update article',
+      500
+    );
+    return next(error);
+  }
 
-  updateArticle.title = title;
-  updateArticle.description = description;
+  article.title = title;
+  article.description = description;
 
-  articles[articleIndex] = updateArticle;
+  try {
+    await article.save();
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not update article',
+      500
+    );
+    return next(error);
+  }
 
-  res.status(200).json({ article: updateArticle });
+  res.status(200).json({ article: article.toObject({ getters: true }) });
 };
 
 /* DELETE existing article */

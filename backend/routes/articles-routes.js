@@ -28,11 +28,7 @@ router.post(
 /* PATCH update existing article*/
 router.patch(
   '/:aid',
-  [
-    check('id').not().isEmpty().isNumeric(),
-    check('title').not().isEmpty(),
-    check('description').isLength({ min: 5 }),
-  ],
+  [check('title').not().isEmpty(), check('description').isLength({ min: 5 })],
   articlesController.updateArticle
 );
 
