@@ -91,7 +91,7 @@ var articles = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     author: 4,
     date: '2022-03-14',
-    img: 'img/main-list/main-cow-1.webp',
+    img: 'img/main-list/main- -1.webp',
     comments: 365,
   },
 ];
@@ -133,7 +133,7 @@ const getArticleById = async (req, res, next) => {
 
     return next(error);
   }
-  res.status(200).json(article);
+  res.status(200).json({ article: article.toObject({ getters: true }) });
 };
 
 /* GET user articles */
@@ -142,7 +142,7 @@ const getUserArticles = async (req, res, next) => {
   let articles;
 
   try {
-    articles = await Article.find();
+    articles = await Article.find({ author: userId });
   } catch (err) {
     const error = new HttpError(
       `Something went wrong. Cannot get articles.`,
@@ -151,17 +151,7 @@ const getUserArticles = async (req, res, next) => {
     return next(error);
   }
 
-  const userArticles = articles.filter((a) => {
-    return a.author == userId;
-  });
-
-  if (!userArticles.length) {
-    throw new HttpError(
-      `Could not find the article for user with ID = [${userId}]`,
-      404
-    );
-  }
-  res.status(200).json(userArticles);
+  res.status(200).json(articles);
 };
 
 /* POST create new article */
