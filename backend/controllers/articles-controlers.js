@@ -15,7 +15,9 @@ const getAllArticles = async (req, res, next) => {
     );
     return next(error);
   }
-  res.status(200).json(articles);
+  res.status(200).json({
+    articles: articles.map((article) => article.toObject({ getters: true })),
+  });
 };
 
 /* GET article by id */

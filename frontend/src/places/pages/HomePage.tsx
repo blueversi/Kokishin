@@ -8,7 +8,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getAllArticles().then((response: any) => {
-      setArticles(response.data);
+      setArticles(response.data.articles);
     });
   }, []);
 
