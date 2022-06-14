@@ -16,13 +16,11 @@ router.get('/user/:uid', articlesController.getUserArticles);
 router.post(
   '/',
   [
-    check('id').not().isEmpty().isNumeric(),
     check('title').not().isEmpty(),
     check('description').isLength({ min: 5 }),
     check('author').not().isEmpty().isNumeric(),
     check('title').not().isEmpty(),
     check('img').not().isEmpty(),
-    check('comments').not().isEmpty().isNumeric(),
   ],
   articlesController.createArticle
 );

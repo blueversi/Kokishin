@@ -1,5 +1,6 @@
 const HttpError = require('../models/http-error');
 const { body, validationResult } = require('express-validator');
+const Article = require('../models/article.js');
 
 /* TMP */
 var articles = [
@@ -133,27 +134,25 @@ const getUserArticles = (req, res, next) => {
 };
 
 /* POST create new article */
-const createArticle = (req, res, next) => {
+const createArticle = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
     throw new HttpError('Invalid inputs passed, please check your data', 422);
   }
 
-  const { id, title, description, author, date, img } = req.body;
+  const { title, description, author, date, img } = req.body;
 
-  const createdArticle = {
-    id,
-    title,
-    description,
-    author,
-    date,
-    img,
-    comments: 365,
-  };
+  const createdArticle = new Article({ title, description, author, date, img });
 
-  articles.push(createdArticle);
-
+  try {
+    await createdArticle.save();
+  } catch (err) {
+    const error = new HttpError(
+      'Create article failed. Please check your input data.',
+      500
+    );
+  }
   res.status(201).json({ article: createdArticle });
 };
 

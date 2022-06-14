@@ -8,7 +8,6 @@ const articleSchema = new Schema({
   author: { type: Number, required: true },
   date: { type: String, required: true },
   img: { type: String, required: true },
-  author: { type: Number, required: true },
 });
 
 module.exports = mongoose.model('Article', articleSchema);

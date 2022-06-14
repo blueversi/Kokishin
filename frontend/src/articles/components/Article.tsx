@@ -8,8 +8,8 @@ interface ArticleProps {
   author: string;
   date: string;
   img: string;
-  category: string;
-  comments: number;
+  category?: string;
+  comments?: number;
 }
 
 const Article = (props: ArticleProps) => {
