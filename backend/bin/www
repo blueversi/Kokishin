@@ -8,6 +8,10 @@ var app = require('../app');
 var debug = require('debug')('backend:server');
 var http = require('http');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config({
+  path: __dirname + '/../.env',
+});
+
 /**
  * Get port from environment and store in Express.
  */
@@ -27,7 +31,7 @@ var server = http.createServer(app);
 
 //Mongoose section
 mongoose
-  .connect()
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     server.listen(port);
     server.on('error', onError);
