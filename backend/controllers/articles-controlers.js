@@ -102,17 +102,25 @@ const getAllArticles = (req, res, next) => {
 };
 
 /* GET article by id */
-const getArticleById = (req, res, next) => {
+const getArticleById = async (req, res, next) => {
   const articleId = req.params.aid;
-  const article = articles.find((a) => {
-    return a.id == articleId;
-  });
-
+  let article;
+  try {
+    article = await Article.findById(articleId);
+  } catch (err) {
+    const error = new HttpError(
+      `Something went wrong. Could not find a article with ID = [${articleId}]`,
+      500
+    );
+    return next(error);
+  }
   if (!article) {
-    throw new HttpError(
+    const error = new HttpError(
       `Could not find a article with ID = [${articleId}]`,
       404
     );
+
+    return next(error);
   }
   res.status(200).json(article);
 };
@@ -152,6 +160,7 @@ const createArticle = async (req, res, next) => {
       'Create article failed. Please check your input data.',
       500
     );
+    return next(error);
   }
   res.status(201).json({ article: createdArticle });
 };
