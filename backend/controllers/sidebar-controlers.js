@@ -2,6 +2,9 @@ const HttpError = require('../models/http-error');
 const { validationResult } = require('express-validator');
 const router = require('../routes/articles-routes');
 
+const SidebarItem = require('../models/sidebarItem');
+const sidebarItem = require('../models/sidebarItem');
+
 /* TMP */
 const sidebarItems = [
   {
@@ -26,7 +29,15 @@ const sidebarItems = [
 
 /* GET all sidebar items */
 
-const getAllSidebarItems = (req, res, next) => {
+const getAllSidebarItems = async (req, res, next) => {
+  let sidebarItems;
+  try {
+    sidebarItems = await sidebarItem.find();
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong. Cannot get sidebar items'
+    );
+  }
   res.status(200).json(sidebarItems);
 };
 
