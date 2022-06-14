@@ -63,7 +63,7 @@ const getUserArticles = async (req, res, next) => {
   }
 
   res.status(200).json({
-    articles: articles.map((place) => place.toObject({ getters: true })),
+    articles: articles.map((article) => article.toObject({ getters: true })),
   });
 };
 

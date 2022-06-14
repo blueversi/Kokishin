@@ -3,7 +3,6 @@ const { validationResult } = require('express-validator');
 const router = require('../routes/articles-routes');
 
 const SidebarItem = require('../models/sidebarItem');
-const sidebarItem = require('../models/sidebarItem');
 
 /* TMP */
 const sidebarItems = [
@@ -32,14 +31,47 @@ const sidebarItems = [
 const getAllSidebarItems = async (req, res, next) => {
   let sidebarItems;
   try {
-    sidebarItems = await sidebarItem.find();
+    sidebarItems = await SidebarItem.find();
   } catch (err) {
     const error = new HttpError(
       'Something went wrong. Cannot get sidebar items'
     );
   }
-  res.status(200).json(sidebarItems);
+  res
+    .status(200)
+    .json({
+      sidebarItems: sidebarItems.map((item) =>
+        item.toObject({ getters: true })
+      ),
+    });
+};
+
+/* POST add sidebar item */
+
+const createSidebarItem = async (req, res, next) => {
+  const errors = validationResult(req);
+  console.log(errors);
+
+  if (!errors.isEmpty()) {
+    throw new HttpError('Invalid inputs passed, please check your data', 422);
+  }
+
+  const { title, content } = req.body;
+
+  const createdSidebarItem = new SidebarItem({ title, content });
+
+  try {
+    await createdSidebarItem.save();
+  } catch (err) {
+    const error = new HttpError(
+      'Create sidebar item failed. Please check your input',
+      500
+    );
+  }
+
+  res.status(201).json({ sidebarItem: createdSidebarItem });
 };
 
 //Exporty
 exports.getAllSidebarItems = getAllSidebarItems;
+exports.createSidebarItem = createSidebarItem;

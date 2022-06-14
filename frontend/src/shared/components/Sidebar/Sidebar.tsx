@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     getSidebarItems().then((response: any) => {
-      setItems(response.data);
+      setItems(response.data.sidebarItems);
     });
   }, []);
 
@@ -19,10 +19,10 @@ const Sidebar = () => {
       {items.map((item: any) => {
         return (
           <SidebarItem
-            key={item.position}
+            key={item.id}
             tiitle={item.title}
             content={item.content}
-            position={item.position}
+            // position={item.position}
           />
         );
       })}
