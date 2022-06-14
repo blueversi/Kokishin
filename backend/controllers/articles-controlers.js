@@ -211,21 +211,20 @@ const updateArticle = (req, res, next) => {
 };
 
 /* DELETE existing article */
-const deleteArticle = (req, res, next) => {
+const deleteArticle = async (req, res, next) => {
   const articleId = req.params.aid;
 
-  const article = articles.find((a) => {
-    return a.id == articleId;
-  });
+  let article;
 
-  if (!article) {
-    throw new HttpError(
-      `Could not find the article with ID = [${articleId}]`,
-      404
+  try {
+    article = await Article.findByIdAndDelete(articleId);
+  } catch (err) {
+    const error = new HttpError(
+      `Something went wrong. Cannot delete article.`,
+      500
     );
+    return next(error);
   }
-
-  articles = articles.filter((a) => a.id != articleId);
 
   res.status(200).json({ message: 'Article deleted' });
 };
