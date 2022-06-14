@@ -137,8 +137,20 @@ const getArticleById = async (req, res, next) => {
 };
 
 /* GET user articles */
-const getUserArticles = (req, res, next) => {
+const getUserArticles = async (req, res, next) => {
   const userId = req.params.uid;
+  let articles;
+
+  try {
+    articles = await Article.find();
+  } catch (err) {
+    const error = new HttpError(
+      `Something went wrong. Cannot get articles.`,
+      500
+    );
+    return next(error);
+  }
+
   const userArticles = articles.filter((a) => {
     return a.author == userId;
   });
