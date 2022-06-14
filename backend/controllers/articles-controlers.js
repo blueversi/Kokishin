@@ -97,7 +97,18 @@ var articles = [
 ];
 
 /* GET all articles */
-const getAllArticles = (req, res, next) => {
+const getAllArticles = async (req, res, next) => {
+  let articles;
+
+  try {
+    articles = await Article.find();
+  } catch (err) {
+    const error = new HttpError(
+      `Something went wrong. Cannot get articles.`,
+      500
+    );
+    return next(error);
+  }
   res.status(200).json(articles);
 };
 
