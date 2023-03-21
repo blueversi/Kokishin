@@ -1,6 +1,8 @@
 const HttpError = require('../models/http-error');
+const mongoose = require('mongoose');
 const { body, validationResult } = require('express-validator');
 const Article = require('../models/article.js');
+const User = require('../models/user');
 
 /* GET all articles */
 const getAllArticles = async (req, res, next) => {
@@ -47,10 +49,9 @@ const getArticleById = async (req, res, next) => {
 /* GET user articles */
 const getUserArticles = async (req, res, next) => {
   const userId = req.params.uid;
-  let articles;
-
+  let userWithArticles;
   try {
-    articles = await Article.find({ author: userId });
+    userWithArticles = await User.findById(userId).populate('articles');
   } catch (err) {
     const error = new HttpError(
       `Something went wrong. Cannot get articles.`,
@@ -58,14 +59,15 @@ const getUserArticles = async (req, res, next) => {
     );
     return next(error);
   }
-
-  if (!articles.length >= 1) {
+  if (userWithArticles.articles.length === 0) {
     const error = new HttpError(`Cannot get articles for this user id.`, 404);
     return next(error);
   }
 
   res.status(200).json({
-    articles: articles.map((article) => article.toObject({ getters: true })),
+    articles: userWithArticles.articles.map((article) =>
+      article.toObject({ getters: true })
+    ),
   });
 };
 
@@ -74,22 +76,46 @@ const createArticle = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    throw new HttpError('Invalid inputs passed, please check your data', 422);
+    const error = new HttpError(
+      'Invalid inputs passed, please check your data',
+      422
+    );
+    return next(error);
   }
 
   const { title, description, author, date, img } = req.body;
 
   const createdArticle = new Article({ title, description, author, date, img });
 
+  let user;
   try {
-    await createdArticle.save();
+    user = await User.findById(author);
   } catch (err) {
+    const error = new HttpError('Creating place faild, try again', 500);
+    return next(error);
+  }
+
+  if (!user) {
+    const error = new HttpError('Could not find that user', 404);
+    return next(error);
+  }
+
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await createdArticle.save({ session: sess });
+    user.articles.push(createdArticle);
+    await user.save({ session: sess });
+    await sess.commitTransaction();
+  } catch (err) {
+    console.log(err);
     const error = new HttpError(
       'Create article failed. Please check your input data.',
       500
     );
     return next(error);
   }
+
   res.status(201).json({ article: createdArticle });
 };
 
@@ -98,7 +124,11 @@ const updateArticle = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    throw new HttpError('Invalid inputs passed, please check your data', 422);
+    const error = new HttpError(
+      'Invalid inputs passed, please check your data' + errors,
+      422
+    );
+    return next(error);
   }
 
   const articleId = req.params.aid;
@@ -138,10 +168,30 @@ const deleteArticle = async (req, res, next) => {
   let article;
 
   try {
-    article = await Article.findByIdAndDelete(articleId);
+    article = await Article.findById(articleId).populate('author');
   } catch (err) {
     const error = new HttpError(
       `Something went wrong. Cannot delete article.`,
+      500
+    );
+    return next(error);
+  }
+
+  if (!article) {
+    const error = new HttpError('Could not find article with this id. ', 404);
+    return next(error);
+  }
+
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await article.remove({ session: sess });
+    article.author.articles.pull(article);
+    await article.author.save({ session: sess });
+    await sess.commitTransaction();
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong. Cannot delete article.',
       500
     );
     return next(error);
